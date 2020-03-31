@@ -114,18 +114,18 @@ do
     if [ "${MERGE}" != "true" ]
     then
        #make the macro file and put it in the macros/ directory
-       sed -e 's|SOURCE|'${SOURCE}'|g' -e 's|THESETID|'${DATASETIDHEX}'|' -e 's|NEVENTS|'${NEV}'|' -e 's|RUNNUMBER|'${i}'|' -e 's|TIMEOFDAY|'${DATE}'|' -e 's|PRIMOUT|'${PRIMOUT}'|' -e 's|DATAOUT|'${DATAOUT}'|' -e 's|TREEOUT|'${TREEOUT}'|' -e 's|DATADIR|'${SOURCEDIR}'|'  < ${TEMPLATEFILE} > 'macros/'${SOURCE}'_'${DATASETIDHEX}'_'${i}'_'${DATE}'.mac'
+       sed -e 's|SOURCE|'${SOURCE}'|g' -e 's|THESETID|'${DATASETIDHEX}'|' -e 's|NEVENTS|'${NEV}'|' -e 's|RUNNUMBER|'${i}'|' -e 's|TIMEOFDAY|'${DATE}'|' -e 's|PRIMOUT|'${PRIMOUT}'|' -e 's|DATAOUT|'${DATAOUT}'|' -e 's|TREEOUT|'${TREEOUT}'|' -e 's|DATADIR|'${SOURCEDIR}'|'  < macro-templates/${TEMPLATEFILE} > 'macros/'${SOURCE}'_'${DATASETIDHEX}'_'${i}'_'${DATE}'.mac'
 
        #make the condor file
        args='macros/'${SOURCE}'_'${DATASETIDHEX}'_'${i}'_'${DATE}'.mac'
        echo ${args}
-       sed -e 's|THEARGUMENTS|'"${args}"'|' -e 's|IDENTIFIER|'${DATASETIDHEX}'|'  < condor-SuperSim > .condorjob_${SOURCE}_${TEMPLATEFILE}
+       sed -e 's|THEARGUMENTS|'"${args}"'|' -e 's|IDENTIFIER|'${DATASETIDHEX}'|'  < condor-templates/condor-SuperSim > .condorjob_${SOURCE}_${TEMPLATEFILE}
     else
        #make the condor file
        #2 0 ybe 100000
        args=${DATASETID}' '${i}' '${SOURCE}' '${NEV}' '${TEMPLATEFILE}
        echo ${args}
-       sed -e 's|THEARGUMENTS|'"${args}"'|' -e 's|IDENTIFIER|'${DATASETIDHEX}'|'  < condor-SuperSimROOT > .condorjob_${SOURCE}_${TEMPLATEFILE}
+       sed -e 's|THEARGUMENTS|'"${args}"'|' -e 's|IDENTIFIER|'${DATASETIDHEX}'|'  < condor-templates/condor-SuperSimROOT > .condorjob_${SOURCE}_${TEMPLATEFILE}
 
     fi
 
@@ -138,18 +138,18 @@ do
     if [ "${MERGE}" != "true" ]
     then
        #make the macro file and put it in the macros/ directory
-       sed -e 's|SOURCE|'${SOURCE}'|g' -e 's|THESETID|'${DATASETIDHEX}'|' -e 's|NEVENTS|'${NEV}'|' -e 's|RUNNUMBER|'${i}'|' -e 's|TIMEOFDAY|'${DATE}'|' -e 's|PRIMOUT|'${PRIMOUT}'|' -e 's|DATAOUT|'${DATAOUT}'|' -e 's|TREEOUT|'${TREEOUT}'|' -e 's|DATADIR|'${SOURCEDIR}'|'  < ${TEMPLATEFILE} > 'macros/'${SOURCE}'_'${DATASETIDHEX}'_'${i}'_'${DATE}'.mac'
+       sed -e 's|SOURCE|'${SOURCE}'|g' -e 's|THESETID|'${DATASETIDHEX}'|' -e 's|NEVENTS|'${NEV}'|' -e 's|RUNNUMBER|'${i}'|' -e 's|TIMEOFDAY|'${DATE}'|' -e 's|PRIMOUT|'${PRIMOUT}'|' -e 's|DATAOUT|'${DATAOUT}'|' -e 's|TREEOUT|'${TREEOUT}'|' -e 's|DATADIR|'${SOURCEDIR}'|'  < macro-templates/${TEMPLATEFILE} > 'macros/'${SOURCE}'_'${DATASETIDHEX}'_'${i}'_'${DATE}'.mac'
 
        #make the condor file
        args='macros/'${SOURCE}'_'${DATASETIDHEX}'_'${i}'_'${DATE}'.mac'
        echo ${args}
-       sed -e 's|THEARGUMENTS|'"${args}"'|' -e 's|IDENTIFIER|'${DATASETIDHEX}'|'  < condor-SuperSim > .condorjob_${SOURCE}_${TEMPLATEFILE}
+       sed -e 's|THEARGUMENTS|'"${args}"'|' -e 's|IDENTIFIER|'${DATASETIDHEX}'|'  < condor-templates/condor-SuperSim > .condorjob_${SOURCE}_${TEMPLATEFILE}
     else
        #make the condor file
        #2 0 ybe 100000
        args=${DATASETID}' '${i}' '${SOURCE}' '${NEV}' '${TEMPLATEFILE}
        echo ${args}
-       sed -e 's|THEARGUMENTS|'"${args}"'|' -e 's|IDENTIFIER|'${DATASETIDHEX}'|'  < condor-SuperSimROOT > .condorjob_${SOURCE}_${TEMPLATEFILE}
+       sed -e 's|THEARGUMENTS|'"${args}"'|' -e 's|IDENTIFIER|'${DATASETIDHEX}'|'  < condor-templates/condor-SuperSimROOT > .condorjob_${SOURCE}_${TEMPLATEFILE}
 
     fi
 
